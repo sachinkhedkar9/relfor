@@ -1,7 +1,14 @@
-console.log('hello there... you are compiling app.js');
+var relfor = angular.module("relfor",['ngRoute']);
 
-var a = 5, b = 5;
-
-var res = (a == b) ? 'equal' : 'not-equal';
-
-console.log('result = ', res); 
+relfor.config(['$routeProvider', function($routeProvider){
+  $routeProvider.
+  when("/login/",{
+    redirectTo: '/login/',
+    templateUrl: 'views/essential/login.html',
+    controller: 'loginController'
+  }).  
+  otherwise({
+    redirectTo: '/',
+    templateUrl: 'views/homepage.html'    
+  });
+}]);

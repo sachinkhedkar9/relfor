@@ -19,6 +19,7 @@ var Config = {
     "/index.html",
     "/lib/",
     "/css/",
+    "/data/",
     "/font/",
     "/images/",
     "/views/",
@@ -64,7 +65,6 @@ gulp.task('jshint', function(){
 gulp.task('build-scripts', ['jshint'], function() {
   return  gulp.src([Config.srcdir + '/app.js', Config.srcdir + '/js/**/*.js'])
     .pipe(concat('app.js'))
-    .pipe(uglify())
     .pipe(gulp.dest('./'+ Config.destdir +'/js/'));
 });
 
